@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data noupdate="0">
+    
+    		<record id="facturacuota12bzef" model="facturacuotaanual">
+				<field name="factura_id">1</field>
+				<field name="miembro_id">1</field>
+			</record>
+			<record id="facturacuota22bzef" model="facturacuotaanual">
+				<field name="factura_id">2</field>
+				<field name="miembro_id">2</field>
+			</record>
+			<record id="facturacuota33bzef" model="facturacuotaanual">
+				<field name="factura_id">3</field>
+				<field name="miembro_id">3</field>
+			</record>
+			
+			
+			
+			<record id="facturaservicio12bzef" model="facturaporservicio">
+				<field name="factura_id">4</field>
+				<field name="nomiembro_id">1</field>
+			</record>
+			<record id="facturaservicio22bzef" model="facturaporservicio">
+				<field name="factura_id">5</field>
+				<field name="nomiembro_id">2</field>
+			</record>
+			<record id="facturaservicio32bzef" model="facturaporservicio">
+				<field name="factura_id">6</field>
+				<field name="nomiembro_id">3</field>
+			</record>
+			
+			 
+			
+			<record id="reclamacion12bzef" model="reclamacion">
+				<field name="name">Reclamacion multa de trafico 1</field>
+				<field name="fecha_apertura">04/01/2016 09:32:00</field>
+				<field name="fecha_cierre">24/01/2016 09:32:00</field>
+				<field name="descripcion">Reclamacion a multa por exceso de velocidad</field>
+				<field name = "abogado_ids">1</field>
+				<field name="state">cerrada</field>
+				<field name = "multa_ids">1</field>
+				<field name = "cliente_id">1</field>
+			</record>
+			<record id="reclamacion22bzef" model="reclamacion">
+				<field name="name">Reclamacion multa por beber en la calle 1</field>
+				<field name="fecha_apertura">29/12/2015 09:32:00</field>
+				<field name="fecha_cierre">19/01/2016 09:32:00</field>
+				<field name="descripcion">Reclamacion a multa por beber en la calle</field>
+				<field name="state">cancelada</field>
+				<field name = "abogado_ids">2</field>
+				<field name = "cliente_id">2</field>
+			</record>
+			<record id="reclamacion32bzef" model="reclamacion">
+				<field name="name">Reclamacion multa por vandalismo callejero 1</field>
+				<field name="fecha_apertura">04/12/2015 09:32:00</field>
+				<field name="fecha_cierre">24/12/2015 09:32:00</field>
+				<field name="descripcion">Reclamacion a multa por vandalismo callejero</field><field name = "abogado_ids"></field>
+				<field name="state">cerrada</field>
+				<field name = "cliente_id"></field>
+				<field name = "abogado_ids">4</field>
+				<field name = "cliente_id">3</field>
+			</record>
+			<record id="reclamacion42bzef" model="reclamacion">
+				<field name="name">Reclamacion multa por ruido 1</field>
+				<field name="descripcion">Reclamacion a multa por exceso de ruido por la noche</field>
+				<field name = "abogado_ids">1</field>
+				<field name = "cliente_id">4</field>
+			</record>
+			<record id="reclamacion52bzef" model="reclamacion">
+				<field name="name">Reclamacion multa de alcoholemia y cinturon de seguridad</field>
+				<field name="descripcion">Reclamacion a multa por exceso de alcohol en sangre y no llevar el cinturon de seguridad</field>
+				<field name = "abogado_ids">2</field>
+				<field name = "cliente_id">5</field>
+			</record>
+			<record id="reclamacion62bzef" model="reclamacion">
+				<field name="name">Reclamacion multa por orinar en la via publica</field>
+				<field name="descripcion">Reclamacion a multa por orinar en la calle</field>
+				<field name = "abogado_ids">1</field>
+				<field name = "cliente_id">6</field>
+			</record>
+			<record id="reclamacion72bzef" model="reclamacion">
+				<field name="name">Reclamacion multa aparcamiento 1</field>
+				<field name="descripcion">Reclamacion a multa por aparcamiento en zona prohibida</field>
+				<field name = "abogado_ids">3</field>
+				<field name = "cliente_id">2</field>
+			</record>
+			<record id="reclamacion82bzef" model="reclamacion">
+				<field name="name">Reclamacion multa por drogas y telefono al volante</field>
+				<field name="descripcion">Reclamacion a multa por posesion de drogas y uso del movil al volante</field>
+				<field name = "abogado_ids">2</field>
+				<field name = "cliente_id">5</field>
+			</record>
+			
+			<record id="multa13bzef" model="multa">
+				<field name="name">1</field>
+				<field name="fecha_multa">03/01/2016 09:32:00</field>
+				<field name="monto">140</field>
+				<field name="descripcion">Multa por exceso de velocidad</field>
+				<field name="reclamacion_id">1</field>
+			</record>
+			<record id="multa23bzef" model="multa">
+				<field name="name">2</field>
+				<field name="fecha_multa">02/01/2016 09:32:00</field>
+				<field name="monto">200</field>
+				<field name="descripcion">Multa por beber en la calle</field>
+				<field name="reclamacion_id">2</field>
+			</record>
+			<record id="multa33bzef" model="multa">
+				<field name="name">3</field>
+				<field name="fecha_multa">04/01/2016 09:32:00</field>
+				<field name="monto">600</field>
+				<field name="descripcion">Multa por vandalismo callejero</field>
+				<field name="reclamacion_id">3</field>
+			</record>
+			<record id="multa43bzef" model="multa">
+				<field name="name">4</field>
+				<field name="fecha_multa">01/01/2016 09:32:00</field>
+				<field name="monto">140</field>
+				<field name="descripcion">Multa por exceso de ruido</field>
+				<field name="reclamacion_id">4</field>
+			</record>
+			<record id="multa53bzef" model="multa">
+				<field name="name">5</field>
+				<field name="fecha_multa">02/01/2016 09:32:00</field>
+				<field name="monto">180</field>
+				<field name="descripcion">Multa por exceso de alcohol en sangre al volante</field>
+				<field name="reclamacion_id">5</field>
+			</record>
+			<record id="multa63bzef" model="multa">
+				<field name="name">6</field>
+				<field name="fecha_multa">01/01/2016 09:32:00</field>
+				<field name="monto">300</field>
+				<field name="descripcion">Multa por no llevar puesto el cinturon de seguridad</field>
+				<field name="reclamacion_id">5</field>
+			</record>
+			<record id="multa73bzef" model="multa">
+				<field name="name">7</field>
+				<field name="fecha_multa">31/12/2015 23:32:00</field>
+				<field name="monto">130</field>
+				<field name="descripcion">Multa por orinar en la via publica</field>
+				<field name="reclamacion_id">6</field>
+			</record>
+			<record id="multa83bzef" model="multa">
+				<field name="name">8</field>
+				<field name="fecha_multa">22/12/2015 09:32:00</field>
+				<field name="monto">90</field>
+				<field name="descripcion">Multa de aparcamiento</field>
+				<field name="reclamacion_id">7</field>
+			</record>
+			<record id="multa93bzef" model="multa">
+				<field name="name">9</field>
+				<field name="fecha_multa">11/12/2015 23:32:00</field>
+				<field name="monto">170</field>
+				<field name="descripcion">Multa por usar el movil al volante</field>
+				<field name="reclamacion_id">8</field>
+			</record>
+			<record id="multa103bzef" model="multa">
+				<field name="name">10</field>
+				<field name="fecha_multa">28/12/2015 09:32:00</field>
+				<field name="monto">300</field>
+				<field name="descripcion">Multa de posesion de drogas</field>
+				<field name="reclamacion_id">8</field>
+			</record>
+    
+    </data>
+</openerp>

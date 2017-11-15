@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+		<record model="ir.ui.view" id="view_factura_tree">
+			<field name="name">factura.tree</field>
+			<field name="model">factura</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Facturas">
+					<field name = "name"/>
+					<field name = "fecha"/>
+					<field name = "importe"	/>		
+				</tree>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="view_factura_graph">
+		   <field name="name">factura.graph</field>
+		   <field name="model">factura</field>
+		   <field name="type">graph</field>
+		   <field name="arch" type="xml">
+		         <graph string="Total pagado y a deber" type='pie'>
+		              <field name="state" group="True"/>
+		           		<field name="importe" /> 
+		        </graph>
+    		</field>
+		</record> 
+		
+		<record id="act_factura" model="ir.actions.act_window">
+			<field name="name">Factura</field>
+			<field name="res_model">factura</field>
+			<field name="view_type">tree</field>
+			<field name="view_mode">tree,graph</field>
+		</record>
+
+		<menuitem name="Facturas" id="factura_submenu" parent="gestion_multas" sequence="100" />
+		<menuitem name="Ver facturas" id="ver_facturas_submenu" parent="factura_submenu" sequence="110" action="act_factura" />
+	</data>
+</openerp>

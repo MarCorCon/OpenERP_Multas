@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="view_Gestion_de_Multas_multa_form" >
+			<field name="name" >view_Gestion_de_Multas_multa_form</field>
+			<field name="model">multa</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Classes">
+				<group col='1'>	
+					<field name="name"/>
+					<field name="fecha_multa"/>
+					<field name="monto"/>
+					<field name= "reclamacion_id"/>
+				</group>
+				<group col='2'>	
+					<field name="descripcion"/>
+					<field name="alegaciones"/>
+					
+				</group>
+				</form>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="view_Gestion_de_Multas_multa_tree">
+			<field name="name">view_Gestion_de_Multas_multa_tree</field>
+			<field name="model">multa</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="tree_string">
+					<field name="name"/>
+					<field name="fecha_multa"/>
+					<field name="monto"/>
+					<field name="reclamacion_id"/>
+					<field name="descripcion"/>
+					<field name="alegaciones"/>
+				</tree>
+			</field>
+		</record>
+		
+		<record model ="ir.ui.view" id="view_multa_search">
+			<field name="name">multa.search</field>
+			<field name="model">multa</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Multas">
+					<group expand="1" string="Agrupar segun...">
+					   <filter string="Reclamacion asignada" icon="terp-project" domain="[]" context="{'group_by':'reclamacion_id'}"/>
+					   <filter string="Fecha de la multa" icon="terp-project" domain="[]" context="{'group_by':'fecha_multa'}"/>
+					</group>
+					<filter string="Importe multa > 400" icon="terp-accessories-archiver" domain="[('monto','&gt;',400)]"/>
+				</search>
+			</field>
+		</record>
+		
+		<record id="act_multa" model="ir.actions.act_window">
+			<field name="name">Multas</field>
+			<field name="res_model">multa</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		
+		<menuitem name="Multas" id="multas_submenu" parent="gestion_multas" sequence="100" />
+		<menuitem name="Ver multas" id="ver_multas_submenu" parent="multas_submenu" sequence="110" action="act_multa" />
+	</data>
+</openerp>

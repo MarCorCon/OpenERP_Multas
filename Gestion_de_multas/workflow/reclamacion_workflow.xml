@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    <record id ="wkf_reclamacion" model = "workflow">
+    	<field name = "name">reclamacion.workflow</field>
+    	<field name = "osv">reclamacion</field>
+    	<field name = "on_create">True</field>
+    </record>
+   	<record id="act_reclamacion_borrador" model="workflow.activity">
+        <field name="wkf_id" ref="wkf_reclamacion"/>
+        <field name="flow_start">True</field>
+        <field name="name">Borrador</field>
+        <field name="kind">dummy</field>
+    </record>
+    		<record id="act_reclamacion_enProceso" model="workflow.activity">
+        <field name="wkf_id" ref="wkf_reclamacion"/>
+        <field name="name">En proceso</field>
+        <field name="action">en_proceso()</field>
+        <field name="kind">function</field>
+    </record>
+    <record id="act_reclamacion_cancelada" model="workflow.activity">
+        <field name="wkf_id" ref="wkf_reclamacion"/>
+        <field name="name">Cancelada</field>
+        <field name="flow_stop">True</field>
+        <field name="action">write({'state':'cancelada'})</field>
+        <field name="kind">function</field>
+    </record>
+    <record id="act_reclamacion_cerrada" model="workflow.activity">
+        <field name="wkf_id" ref="wkf_reclamacion"/>
+        <field name="name">Cerrada</field>
+        <field name="flow_stop">True</field>
+        <field name="action">cerrada()</field>
+        <field name="kind">function</field>
+    </record>
+	<record id="trans_borrador_enProceso" model="workflow.transition">
+		<field name="act_from" ref="act_reclamacion_borrador" />
+		<field name="act_to" ref="act_reclamacion_enProceso" />
+		<field name="signal">iniciar</field>
+		<field name="condition">check_en_proceso()</field>
+	</record>
+		
+	<record id="trans_enProceso_cancelada" model="workflow.transition">
+		<field name="act_from"  ref="act_reclamacion_enProceso" />
+		<field name="act_to" ref="act_reclamacion_cancelada" />
+		<field name="signal">cancelar</field>
+	</record>
+		
+	<record id="trans_enProceso_cerrada" model="workflow.transition">
+		<field name="act_from"  ref="act_reclamacion_enProceso" />
+		<field name="act_to" ref="act_reclamacion_cerrada" />
+		<field name="signal">cerrar</field>
+	</record>
+		
+	<record id="trans_borrador_cancelada" model="workflow.transition">
+		<field name="act_from"  ref="act_reclamacion_borrador" />
+		<field name="act_to" ref="act_reclamacion_cancelada" />
+		<field name="signal">cancelar</field>
+	</record>
+
+	
+    </data>
+</openerp>

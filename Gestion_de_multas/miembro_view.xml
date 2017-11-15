@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    	<record model="ir.ui.view" id="view_miembro_tree">
+		    <field name="name">miembro.tree</field>
+		    <field name="model">miembro</field>
+		    <field name="type">tree</field>
+		    <field name="arch" type="xml">
+	    		<tree string="Miembros">
+	    			<field name ="name"/>
+	    			<field name ="dni_cliente"/>
+	    			<field name ="telefono"/> 
+					<field name ="email"/> 
+                    <field name ="fecha_alta"/>
+                    <field name="facturacuotaanual_ids"/>  
+				</tree>
+        	</field>
+    	</record>  
+ 
+         
+         <record model="ir.ui.view" id="view_miembros_form" >
+			<field name="name" >miembro.form</field>
+			<field name="model">miembro</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Miembros">
+					<field name ="cliente_id"/>
+					<field name ="fecha_alta"/>
+					<group col='1' colspan='4'>	
+						<field name="facturacuotaanual_ids" nolabel='0'  widget = "many2many" /> 
+					</group>
+				</form>
+			</field>
+		</record>
+         
+         
+        <record id="act_miembro" model="ir.actions.act_window">
+            <field name="name">Miembros</field>
+            <field name="res_model">miembro</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+         
+        <menuitem name="Ver clientes miembros" id="ver_miembros_submenu" parent="cliente_submenu" sequence="130" action="act_miembro" />
+    </data>
+</openerp>

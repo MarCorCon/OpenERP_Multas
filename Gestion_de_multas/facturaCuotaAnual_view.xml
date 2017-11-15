@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		
+		<record model="ir.ui.view" id="view_factura_cuota_anual_tree">
+			<field name="name">factura_cuota_anual.tree</field>
+			<field name="model">facturacuotaanual</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Facturas Cuota Anual">
+					<field name = "name"/>
+					<field name = "fecha"/>
+					<field name = "importe"	/>
+					<field name = "state"	/>		
+					<field name="miembro_id"/>
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="view_factura_cuota_anual_form" >
+			<field name="name" >factura_cuota_anual.form</field>
+			<field name="model">facturacuotaanual</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Factura Cuota Anual">
+					<group col='1' colspan='4'>	
+					<field name="state" widget="statusbar" statusbar_visible="no,si"/>
+					<button string="Pagar" type="workflow" name="pagar2" states="no"/>
+				</group>
+					<field name = "factura_id"/>
+					<field name="miembro_id"/>
+					
+				</form>
+			</field>
+		</record>
+		
+		<record model ="ir.ui.view" id="view_factura_cuota_anual_search">
+			<field name="name">factura_cuota_anual.search</field>
+			<field name="model">facturacuotaanual</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Facturas de cuota anual">
+					<group expand="1" string="Agrupar segun...">
+					   <filter string="Estado de pago" icon="terp-project" domain="[]" context="{'group_by':'state'}"/>
+					   <separator orientation="vertical"/>
+					   <filter string="Cliente" icon="terp-project" domain="[]" context="{'group_by':'miembro_id'}"/>
+					</group>
+					<filter string="Importe >100" icon="terp-accessories-archiver" domain="[('importe','&gt;',100)]"/>
+					
+				</search>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="view_factura_cuota_anual_graph">
+		   <field name="name">factura_cuota_anual.graph</field>
+		   <field name="model">facturacuotaanual</field>
+		   <field name="type">graph</field>
+		   <field name="arch" type="xml">
+		         <graph string="Total pagado y a deber" type='pie'>
+		              <field name="state" group="True"/>
+		           		<field name="importe" /> 
+		        </graph>
+    		</field>
+		</record> 
+		
+		<record id="act_factura_cuota_anual" model="ir.actions.act_window">
+			<field name="name">Facturas Cuota Anual</field>
+			<field name="res_model">facturacuotaanual</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form,graph</field>
+		</record>
+		
+		<menuitem name="Facturas Cuota Anual" id="ver_factura_cuota_anual_submenu" parent="factura_submenu" sequence="110" action="act_factura_cuota_anual" />
+	</data>
+</openerp>

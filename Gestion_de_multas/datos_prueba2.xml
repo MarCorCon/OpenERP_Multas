@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<openerp>
+		<data noupdate="0">
+			<record id="miembro22bzef" model="miembro">
+				<field name="cliente_id">1</field>
+				<field name="fecha_alta">15/11/2015 13:40:00</field>
+			</record>
+			<record id="miembro32bzef" model="miembro">
+				<field name="cliente_id">2</field>
+				<field name="fecha_alta">08/05/2015 13:40:00</field>
+			</record>
+			<record id="miembro42bzef" model="miembro">
+				<field name="cliente_id">3</field>
+				<field name="fecha_alta">16/04/2015 13:40:00</field>
+			</record>
+			
+			
+			
+			<record id="nomiembro12bzef" model="nomiembro">
+				<field name="cliente_id">4</field>
+			</record>
+			<record id="nomiembro22bzef" model="nomiembro">
+				<field name="cliente_id">5</field>
+			</record>
+			<record id="nomiembro32bzef" model="nomiembro">
+				<field name="cliente_id">6</field>
+			</record>
+			
+			
+			
+			
+		</data>
+	</openerp>

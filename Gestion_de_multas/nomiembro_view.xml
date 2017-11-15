@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    	<record model="ir.ui.view" id="view_nomiembro_tree">
+		    <field name="name">nomiembro.tree</field>
+		    <field name="model">nomiembro</field>
+		    <field name="type">tree</field>
+		    <field name="arch" type="xml">
+	    		<tree string="No miembros">
+                   	<field name ="name"/>
+                   	<field name ="dni_cliente"/>
+                    <field name ="telefono"/>     
+                    <field name ="email"/>
+                    <field name="facturaporservicio_ids"/> 
+				</tree>
+        	</field>
+    	</record>  
+ 
+         
+         <record model="ir.ui.view" id="view_nomiembros_form" >
+			<field name="name" >nomiembro.form</field>
+			<field name="model">nomiembro</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="No miembros">
+					<group col='1' colspan='2'>	
+						<field name="cliente_id"/>
+					</group>
+					<group col='1' colspan='4'>	
+						<field name="facturaporservicio_ids" nolabel='0'  widget = "many2many"/>
+					</group>
+				</form>
+			</field>
+		</record>
+         
+         
+        <record id="act_nomiembro" model="ir.actions.act_window">
+            <field name="name">No miembros</field>
+            <field name="res_model">nomiembro</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+         
+        <menuitem name="Ver clientes no miembros" id="ver_nomiembros_submenu" parent="cliente_submenu" sequence="120" action="act_nomiembro" />
+    </data>
+</openerp>

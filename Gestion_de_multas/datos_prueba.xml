@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data noupdate="0">
+    
+    
+    		<record id="abogado13bzef" model="abogado">
+				<field name="dni_abogado">74556687L</field>
+				<field name="name">Lionel Hutz</field>
+				<field name="sueldo">65000</field>
+			</record>
+			<record id="abogado23bzef" model="abogado">
+				<field name="dni_abogado">69753684P</field>
+				<field name="name">Perri Mason</field>
+				<field name="sueldo">35000</field>
+			</record>
+			<record id="abogado33bzef" model="abogado">
+				<field name="dni_abogado">67896125U</field>
+				<field name="name">John Doe</field>
+				<field name="sueldo">125000</field>
+			</record>
+			<record id="abogado43bzef" model="abogado">
+				<field name="dni_abogado">58961483G</field>
+				<field name="name">Lucas Perez</field>
+				<field name="sueldo">45000</field>
+			</record>
+			<record id="abogado53bzef" model="abogado">
+				<field name="dni_abogado">34988643H</field>
+				<field name="name">Antonio Hidalgo</field>
+				<field name="sueldo">37000</field>
+			</record>
+			
+			
+			
+			
+			
+			
+			
+			<record id="cliente13bzef" model="cliente">
+				<field name="dni_cliente">45682342G</field>
+				<field name="name">Alfonso Blanco</field>
+				<field name="telefono">954468123</field>
+				<field name="email">ablanco@gmail.com</field>
+			</record>
+			<record id="cliente23bzef" model="cliente">
+				<field name="dni_cliente">12684354F</field>
+				<field name="name">Teresa Rojas</field>
+				<field name="telefono">954568123</field>
+				<field name="email">trojas@gmail.com</field>
+			</record>
+			<record id="cliente33bzef" model="cliente">
+				<field name="dni_cliente">85394129T</field>
+				<field name="name">Roberto Garcia</field>
+				<field name="telefono">954375168</field>
+				<field name="email">rgarcia@gmail.com</field>
+			</record>
+			<record id="cliente43bzef" model="cliente">
+				<field name="dni_cliente">49735167I</field>
+				<field name="name">Federico Martin</field>
+				<field name="telefono">954597642</field>
+				<field name="email">fmartin@gmail.com</field>
+			</record>
+			<record id="cliente53bzef" model="cliente">
+				<field name="dni_cliente">28645295B</field>
+				<field name="name">Alberto Martinez</field>
+				<field name="telefono">954846394</field>
+				<field name="email">amartinez@gmail.com</field>
+			</record>
+			<record id="cliente63bzef" model="cliente">
+				<field name="dni_cliente">57194685L</field>
+				<field name="name">Jose Casanova</field>
+				<field name="telefono">954932828</field>
+				<field name="email">jcasanova@gmail.com</field>
+			</record>
+			
+			 
+			
+			
+			
+			
+			<record id="factura33bzef" model="factura">
+				<field name="name">Factura cuota socio</field>
+				<field name="fecha">08/01/2016 09:32:00</field>
+				<field name="importe">120</field>
+			</record>
+			<record id="factura43bzef" model="factura">
+				<field name="name">Factura cuota socio 2</field>
+				<field name="fecha">06/01/2016 09:32:00</field>
+				<field name="importe">80</field>
+			</record>
+			<record id="factura53bzef" model="factura">
+				<field name="name">Factura cuota socio 3</field>
+				<field name="fecha">04/01/2016 09:32:00</field>
+				<field name="importe">130</field>
+			</record>
+			<record id="factura63bzef" model="factura">
+				<field name="name">Factura multa trafico</field>
+				<field name="fecha">03/01/2016 09:32:00</field>
+				<field name="importe">60</field>
+			</record>
+			<record id="factura73bzef" model="factura">
+				<field name="name">Factura multa beber en la calle</field>
+				<field name="fecha">06/01/2016 09:32:00</field>
+				<field name="importe">75</field>
+			</record>
+			<record id="factura83bzef" model="factura">
+				<field name="name">Factura multa vandalismo</field>
+				<field name="fecha">03/01/2016 09:32:00</field>
+				<field name="importe">40</field>
+			</record>
+			
+			 
+
+
+    </data>
+</openerp>

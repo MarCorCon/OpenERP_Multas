@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    <record id ="wkf_factura_por_servicio" model = "workflow">
+    	<field name = "name">facturaporservicio.workflow</field>
+    	<field name = "osv">facturaporservicio</field>
+    	<field name = "on_create">True</field>
+    </record>
+   	<record id="act_factura_por_servicio_no" model="workflow.activity">
+        <field name="wkf_id" ref="wkf_factura_por_servicio"/>
+        <field name="flow_start">True</field>
+        <field name="name">No</field>
+        <field name="kind">dummy</field>
+    </record>
+    <record id="act_factura_por_servicio_si" model="workflow.activity">
+        <field name="wkf_id" ref="wkf_factura_por_servicio"/>
+        <field name="name">Si</field>
+        <field name="flow_stop">True</field>
+        <field name="action">write({'state':'si'})</field>
+        <field name="kind">function</field>
+    </record>
+    <record id="trans_no_si" model="workflow.transition">
+		<field name="act_from" ref="act_factura_por_servicio_no" />
+		<field name="act_to" ref="act_factura_por_servicio_si" />
+		<field name="signal">pagar</field>
+	</record>
+	</data>
+</openerp>

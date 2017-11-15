@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+	
+	<record model="ir.ui.view" id="abogado_form_view">
+		<field name="name">abogado.form</field>
+		<field name="model">abogado</field>
+		<field name="type">form</field>
+		<field name="arch" type="xml">
+			<form string="Abogados">
+				<field name="name"/>
+				<field name="dni_abogado"/>
+				<field name="sueldo"/>
+				<group col='1' colspan='4'>	
+				<field name = "reclamacion_ids" nolabel='0' colspan='4' widget = "many2many"/>
+				</group>
+			</form>
+		</field>
+	</record>
+	
+	<record model="ir.ui.view" id="abogado_tree_view">
+		<field name="name">abogado.tree</field>
+		<field name="model">abogado</field>
+		<field name="type">tree</field>
+		<field name="arch" type="xml">
+			<tree string="Abogados">
+				<field name="name"/>
+				<field name="dni_abogado"/>
+				<field name="sueldo"/>
+				<field name = "reclamacion_ids"/>
+			</tree>
+		</field>
+	</record>
+	
+	<record model ="ir.ui.view" id="view_abogado_search">
+		<field name="name">abogado.search</field>
+		<field name="model">abogado</field>
+		<field name="type">search</field>
+		<field name="arch" type="xml">
+			<search string="Abogados">
+				<group expand="1" string="Agrupar segun...">
+				   <filter string="Reclamaciones asignadas" icon="terp-project" domain="[]" context="{'group_by':'reclamacion_ids'}"/>
+				</group>
+				<filter string="Abogados VIP(salario>60000)" icon="terp-accessories-archiver" domain="[('sueldo','&gt;',60000)]"/>
+			</search>
+		</field>
+	</record>
+	
+	<record id="act_abogado" model="ir.actions.act_window">
+		<field name="name">Abogado</field>
+		<field name="res_model">abogado</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+	
+	<menuitem name="Abogados" id="abogado_submenu" parent="gestion_multas"
+sequence="100" />
+	<menuitem name="Abogados" id="ver_abogados_submenu"
+parent="abogado_submenu" sequence="110" action="act_abogado" />
+
+	</data>
+</openerp>

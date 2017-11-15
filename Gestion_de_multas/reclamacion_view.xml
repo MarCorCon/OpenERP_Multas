@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+		<record model="ir.ui.view" id="view_reclamacion_form">
+			<field name="name">reclamacion.form</field>
+			<field name="model">reclamacion</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+			<form string="Reclamaciones">
+				<field name="state" widget="statusbar" statusbar_visible="borrador,en_proceso,cerrada,cancelada" statusbar_colors='{"borrador":"blue","en_proceso": "yellow","cerrada":"green","cancelada": "red"}'/>
+					<button string="Iniciar" type="workflow" name="iniciar" states="borrador" colspan = "1"/>
+					<button string="Cancelar" type="workflow" name="cancelar" states="borrador,en_proceso" colspan = "1" />
+					<button string="Cerrar" type="workflow" name="cerrar" states="en_proceso" colspan = "1"/>
+					<group col='1' colspan='3'>
+					<field name="name"/>
+					<field name ="descripcion"/>
+					</group>
+					<group col='4' colspan='1'>
+					<field name = "fecha_apertura" readonly="1"/>
+					<field name = "fecha_cierre" readonly="1"/>
+					</group>
+					<group col='1' colspan='4'>	
+					<field name = "abogado_ids" nolabel='0'  widget = "many2many"/>
+					</group>
+					<group col='1' colspan='4'>	
+					<field name = "multa_ids" nolabel='0'   widget = "many2many"/>
+					<field name = "cliente_id"/>
+					<field name = "facturaporservicio_id"/>
+					</group>
+				</form>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="view_reclamacion_tree">
+			<field name="name">reclamacion.tree</field>
+			<field name="model">reclamacion</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Reclamaciones">
+					<field name="name"/>
+					<field name ="descripcion"/>
+					<field name = "state"	/>
+					<field name = "fecha_apertura"/>
+					<field name = "fecha_cierre"/>	
+					<field name = "abogado_ids" />
+					<field name = "multa_ids" />
+					<field name = "cliente_id" />	
+					<field name = "facturaporservicio_id"/>
+					<!--  <field name = "contador"/> -->	
+				</tree>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="view_reclamacion_calendar">
+		   <field name="name">reclamacion.calendar</field>
+		   <field name="model">reclamacion</field>
+		   <field name="type">calendar</field>
+		   <field name="arch" type="xml">
+		        <calendar color="state" date_start="fecha_apertura" date_stop="fecha_cierre" string="Plazos">
+				    <field name="name"/>
+				</calendar>
+    		</field>
+		</record>
+		
+		<record model ="ir.ui.view" id="view_reclamacion_search">
+			<field name="name">reclamacion.search</field>
+			<field name="model">reclamacion</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Reclamaciones">
+					<group expand="1" string="Agrupar segun...">
+					   <filter string="Estado de la reclamacion" icon="terp-project" domain="[]" context="{'group_by':'state'}"/>
+					   <filter string="Cliente" icon="terp-project" domain="[]" context="{'group_by':'cliente_id'}"/>
+					   <filter string="Abogado" icon="terp-project" domain="[]" context="{'group_by':'abogado_ids'}"/>
+					</group>
+				</search>
+			</field>
+		</record>
+		
+		
+		<record model="ir.ui.view" id="view_reclamacion_gantt">
+           <field name="name">reclamacion.gantt</field>
+           <field name="model">reclamacion</field>
+           <field name="type">gantt</field>
+           <field name="arch" type="xml">
+                <gantt color="name" date_start="fecha_apertura" date_stop="fecha_cierre" string="Gantt">
+                    <level object="multa" link="multa_ids" domain="[]">
+                        <field name="name"/>
+                    </level>
+                </gantt>
+            </field>
+        </record>
+		
+		
+		<record id="act_reclamacion" model="ir.actions.act_window">
+			<field name="name">Reclamacion</field>
+			<field name="res_model">reclamacion</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form,calendar,gantt</field>
+		</record>
+		
+		<menuitem id="gestion_multas" name="Gestion de multas" />
+		<menuitem name="Reclamaciones" id="reclamacion_submenu" parent="gestion_multas" sequence="100" />
+		<menuitem name="Reclamaciones" id="ver_reclamaciones_submenu" parent="reclamacion_submenu" sequence="110" action="act_reclamacion" />
+	</data>
+</openerp>
